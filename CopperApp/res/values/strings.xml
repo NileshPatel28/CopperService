@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CopperApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="userName">Email</string>
+    <string name="password">Password</string>
+    <string name="userNameValidation">Please enter your email</string>
+    <string name="passwordValidation">Please enter your passsword</string>
+    <string name="pleaseWait">Please Wait..</string>
+    <string name="logoutMessage">Are you sure, You want to logout the application ?</string>
+    <string name="firstName">First Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="initial">Initial</string>
+    <string name="company_name">Company Name</string>
+    <string name="personal_email">Personal Email</string>
+    <string name="mobile_number">Mobile Number</string>
+    <string name="street">Street</string>
+    <string name="subject">Subject</string>
+    <string name="city">City</string>
+    <string name="state">State</string>
+    <string name="zipcode">Zip Code</string>
+    <string name="country">Country</string>
+    <string name="add_property">Add Property</string>
+    <string name="save">Save</string>
+    <string name="network_not_available">Network is not rechable , Please try again later. </string>
+    <string name="action1">Add Client </string>
+    <string name="action2">Add quote </string>
+    <string name="action3">Add Job </string>
+    <string name="action4">Add Inventory </string>
+    <string name="action5">Add Expanses </string>
+    <string name="action6">Add Task </string>
+    <string name="action7">Add Property </string>
+    <string name="action8">Add Invoice </string>
+    <string name="action9">Time Sheet Entry </string>
+    <string name="key_signing">AIzaSyDmJ0OZ1oYyonQR3gz62MqOuTrzDp6UYvI</string>
+    <string name="key_debug">AIzaSyCsnmGuCLRKZA7CQowDeE-xdzSQqzQ93eg</string>
+    
+    
+    <string-array name="sliderItemArray">
+        <item>	 DashBoard </item>
+        <item>	 Tasks </item>
+        <item>	 Client</item>
+        <item>	 Quote  </item>
+        <item>	 Job  </item>
+        <item>	 Routing </item>
+        <item>	 Expenses</item>
+        <item>Inventory </item>
+        <item>Property </item>
+        <item>Invoice </item>
+        <item>Timesheet </item>
+    </string-array>
+    <string-array name="nameArray">
+        <item>	 qwert steve </item>
+        <item>	 hnary dave</item>
+        <item>	 cris teg </item>
+        <item>	 ricky lui  </item>
+        <item>	 jown will </item>
+        <item>	 Raj malhotra</item>
+        <item>Sanny roy </item>
+        <item>dave sfg </item>
+        <item>	 qwert steve </item>
+        <item>	 hnary dave</item>
+        <item>	 cris teg </item>
+        <item>	 ricky lui  </item>
+        <item>	 jown will </item>
+        <item>	 Raj malhotra</item>
+        <item>Sanny roy </item>
+        <item>dave sfg </item>
+    </string-array>
+
+    <string name="title_activity_create_new_expenses">CreateNewExpensesActivity</string>
+    <string name="quote_order">Quote Order</string>
+    <string name="tax">Tax </string>
+    <string name="discount"> Discount  </string>
+    <string name="work_order_name"> Work Order Name</string>
+    <string name="work_order_description">Work Order Description</string>
+    <string name="client_message">Client Message </string>
+    <string name="selectClient">Select Client </string>
+
+</resources>

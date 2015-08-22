@@ -1,0 +1,240 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2" >
+
+            <TextView
+                android:id="@+id/dateLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight=".5"
+                android:text="Date"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/dates"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1.5"
+                android:background="@drawable/txt_bg"
+                android:drawableRight="@drawable/calendar"
+                android:gravity="center_vertical"
+                android:padding="5dp"
+                android:text=""
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/isChecked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Distance/Mileage Expnese"
+            android:textColor="@android:color/black"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:weightSum="2" >
+
+            <TextView
+                android:id="@+id/distanceLabel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight=".5"
+                android:text="Distance"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:id="@+id/distane"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight=".5"
+                android:background="@drawable/txt_bg"
+                android:gravity="center_vertical"
+                android:hint="0.00"
+                android:padding="5dp"
+                android:phoneNumber="true"
+                android:text="0.0"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight=".5"
+                android:background="@drawable/txt_bg"
+                android:drawableRight="@drawable/drop_down"
+                android:gravity="center_vertical"
+                android:hint="0.00"
+                android:padding="5dp"
+                android:phoneNumber="true"
+                android:text="0.0"
+                android:textColor="@android:color/black" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/merchent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Merchent"
+            android:textColor="@android:color/black"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/merchentEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/txt_bg"
+            android:cursorVisible="true"
+            android:maxLength="100"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Detail"
+            android:textColor="@android:color/black"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/detailEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/txt_bg"
+            android:cursorVisible="true"
+            android:maxLength="100"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Total"
+            android:textColor="@android:color/black"
+            android:visibility="visible" />
+
+        <EditText
+            android:id="@+id/totalEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/txt_bg"
+            android:cursorVisible="true"
+            android:maxLength="100"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:singleLine="true"
+            android:textColor="@android:color/black" />
+
+        <RadioGroup
+            android:id="@+id/rgb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rd1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reimbursable"
+                android:textColor="@android:color/black" />
+
+            <RadioButton
+                android:id="@+id/rd2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Billable"
+                android:textColor="@android:color/black" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/selectJobLbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Job"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/selectJob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/txt_bg"
+            android:drawableRight="@drawable/drop_down"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/selectCategaryLbl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Categary"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/selectCategary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/txt_bg"
+            android:drawableRight="@drawable/drop_down"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:text=""
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="@dimen/login_margin"
+            android:background="@drawable/square_button_bg"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Save"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+</ScrollView>
