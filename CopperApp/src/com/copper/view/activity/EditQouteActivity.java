@@ -36,6 +36,8 @@ public class EditQouteActivity extends ActionBarActivity implements
 	private QuoteChildBean quoteChildBean;
 	private EditText quantity;
 	private EditText unitCost;
+	private ArrayList<PropertyBean> property = new ArrayList<PropertyBean>();
+	private String property_id;
 
 	void setData() {
 		quote_order.setText(quoteChildBean.getQuote_order());
@@ -72,6 +74,7 @@ public class EditQouteActivity extends ActionBarActivity implements
 					@Override
 					public void onClick(View arg0) {
 						// TODO Auto-generated method stub
+
 						RequestMethod.getProperty(EditQouteActivity.this,
 								MyPref.getInstance(EditQouteActivity.this)
 										.readPrefs(MyPref.USER_ID),
@@ -93,10 +96,10 @@ public class EditQouteActivity extends ActionBarActivity implements
 				} else {
 
 					Utils.ID = quoteChildBean.getId();
-					RequestMethod.createQuote(EditQouteActivity.this, "1",
-							quote_order.getText().toString().trim(), tax
-									.getText().toString().trim(), discount
-									.getText().toString().trim(),
+					RequestMethod.createQuote(EditQouteActivity.this,
+							property_id, quote_order.getText().toString()
+									.trim(), tax.getText().toString().trim(),
+							discount.getText().toString().trim(),
 							work_order_name.getText().toString().trim(),
 							work_order_description.getText().toString().trim(),
 							client_message.getText().toString().trim(),
@@ -155,6 +158,8 @@ public class EditQouteActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Update Quote");
+		Utils.backAction(this);
+
 	}
 
 	@Override
@@ -166,6 +171,7 @@ public class EditQouteActivity extends ActionBarActivity implements
 		} else {
 			if (object != null) {
 				ArrayList<PropertyBean> list = (ArrayList<PropertyBean>) object;
+				property = list;
 				if (list.size() > 0) {
 					String[] items = new String[list.size()];
 					for (int i = 0; i < items.length; i++) {
@@ -181,6 +187,8 @@ public class EditQouteActivity extends ActionBarActivity implements
 										public void onClick(
 												DialogInterface arg0, int arg1) {
 											// TODO Auto-generated method stub
+											property_id = property.get(arg1)
+													.getId();
 										}
 									}).create().show();
 				} else {

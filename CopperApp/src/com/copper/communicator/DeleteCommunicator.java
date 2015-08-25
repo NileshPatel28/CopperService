@@ -12,6 +12,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.copper.prefs.MyPref;
+
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -22,7 +24,7 @@ public class DeleteCommunicator extends AsyncTask<String, String, String> {
 	ProgressDialog progressDialog;
 	Context context;
 	private HttpResponse response;
-	private String URL = "http://peaceful-taiga-7787.herokuapp.com/api/v1/%s/%s?user_id=2";
+	private String URL = ConstantLib.BASE_URL + "%s/%s?user_id=%s";
 	private DeleteListener mDeleteListener;
 
 	public interface DeleteListener {
@@ -34,7 +36,9 @@ public class DeleteCommunicator extends AsyncTask<String, String, String> {
 		// TODO Auto-generated constructor stub
 		this.context = context;
 		mDeleteListener = deleteListener;
-		String url = String.format(URL, method, id);
+		String url = String.format(URL, method, id, MyPref.getInstance(context)
+				.readPrefs(MyPref.USER_ID));
+		Log.v("N", "URL : " + url);
 		execute(url);
 	}
 

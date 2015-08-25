@@ -14,6 +14,7 @@ public interface ConstantLib {
 	String PROPERTIES = "properties";
 	String FORGOT_PASSWORD = "users/password";
 	String QUOTES = "quotes";
+	String QUOTE_WORKS = "quote_works";
 	String EXPENSES = "expenses";
 	String BASIC_TASKS = "basic_tasks";
 	String TODAY_TASK = "basic_tasks/today_task";

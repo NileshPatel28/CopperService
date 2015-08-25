@@ -160,6 +160,8 @@ public class UpdatePropertyActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Update Property");
+		Utils.backAction(this);
+
 	}
 
 	@Override

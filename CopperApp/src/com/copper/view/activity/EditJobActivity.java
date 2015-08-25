@@ -189,6 +189,8 @@ public class EditJobActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Update Job");
+		Utils.backAction(this);
+
 	}
 
 }

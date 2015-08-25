@@ -6,19 +6,39 @@ import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.copper.app.R;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class Utils {
+
+	public static void backAction(final ActionBarActivity actionBarActivity) {
+		actionBarActivity.getSupportActionBar().getCustomView()
+				.findViewById(R.id.back).setVisibility(View.VISIBLE);
+ 		actionBarActivity.getSupportActionBar().getCustomView()
+				.findViewById(R.id.back)
+				.setOnClickListener(new OnClickListener() {
+
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+						actionBarActivity.finish();
+					}
+				});
+
+	}
 
 	public static String formatDateToTime(String dtStart) {
 		String time = "00:00";

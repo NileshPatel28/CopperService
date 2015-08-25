@@ -147,6 +147,8 @@ public class CreateInventoryActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Create Inventory");
+		Utils.backAction(this);
+
 	}
 
 	void DropDown() {

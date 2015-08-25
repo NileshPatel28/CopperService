@@ -216,5 +216,7 @@ public class EditTimeSheetActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("TimeSheet");
+		Utils.backAction(this);
+
 	}
 }

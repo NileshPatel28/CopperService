@@ -6,9 +6,17 @@ import java.util.Locale;
 
 import org.w3c.dom.Document;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Criteria;
@@ -17,12 +25,17 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
@@ -39,7 +52,9 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.maps.GeoPoint;
@@ -195,14 +210,108 @@ public class DirectionMapChildFragment extends Fragment implements
 	private void addMarkers() {
 		if (mGoogleMap != null) {
 			for (int i = 0; i < latLngs.size(); i++) {
-				mGoogleMap.addMarker(new MarkerOptions().position(
-						latLngs.get(i)).title(
-						getCompleteAddressString(latLngs.get(i).latitude,
-								latLngs.get(i).longitude)));
+				// mGoogleMap.addMarker(new MarkerOptions()
+				// .position(latLngs.get(i))
+				// .icon(BitmapDescriptorFactory
+				// .fromBitmap(drawTextToBitmap(getActivity(),
+				// R.drawable.ic_launcher, "B")))
+				// .title(getCompleteAddressString(
+				// latLngs.get(i).latitude,
+				// latLngs.get(i).longitude)));
 
+				setUpMap(
+						getActivity(),
+						latLngs.get(i),
+						chars[i],
+						getCompleteAddressString(latLngs.get(i).latitude,
+								latLngs.get(i).longitude));
 			}
 
 		}
+	}
+
+	String chars[] = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
+			"L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
+			"Y", "Z" };
+
+	private void setUpMap(FragmentActivity activity, final LatLng markerLatLng,
+			String text, String title) {
+
+		View marker = ((LayoutInflater) getActivity().getSystemService(
+				Context.LAYOUT_INFLATER_SERVICE)).inflate(
+				R.layout.custom_marker_layout, null);
+		TextView numTxt = (TextView) marker.findViewById(R.id.num_txt);
+		numTxt.setText(text);
+
+		mGoogleMap.addMarker(new MarkerOptions()
+				.position(markerLatLng)
+				.title(title)
+				.icon(BitmapDescriptorFactory
+						.fromBitmap(createDrawableFromView(activity, marker))));
+
+		// final View mapView = mapView;
+		if (mapView.getViewTreeObserver().isAlive()) {
+			mapView.getViewTreeObserver().addOnGlobalLayoutListener(
+					new OnGlobalLayoutListener() {
+						@SuppressLint("NewApi")
+						// We check which build version we are using.
+						@Override
+						public void onGlobalLayout() {
+							LatLngBounds bounds = new LatLngBounds.Builder()
+									.include(markerLatLng).build();
+							if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN) {
+								mapView.getViewTreeObserver()
+										.removeGlobalOnLayoutListener(this);
+							} else {
+								mapView.getViewTreeObserver()
+										.removeOnGlobalLayoutListener(this);
+							}
+						}
+					});
+		}
+	}
+
+	// Convert a view to bitmap
+	public static Bitmap createDrawableFromView(Context context, View view) {
+		DisplayMetrics displayMetrics = new DisplayMetrics();
+		((Activity) context).getWindowManager().getDefaultDisplay()
+				.getMetrics(displayMetrics);
+		view.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT,
+				LayoutParams.WRAP_CONTENT));
+		view.measure(displayMetrics.widthPixels, displayMetrics.heightPixels);
+		view.layout(0, 0, displayMetrics.widthPixels,
+				displayMetrics.heightPixels);
+		view.buildDrawingCache();
+		Bitmap bitmap = Bitmap.createBitmap(view.getMeasuredWidth(),
+				view.getMeasuredHeight(), Bitmap.Config.ARGB_8888);
+
+		Canvas canvas = new Canvas(bitmap);
+		view.draw(canvas);
+
+		return bitmap;
+	}
+
+	public static Bitmap drawTextToBitmap(Context gContext, int gResId,
+			String gText) {
+		Resources resources = gContext.getResources();
+		float scale = resources.getDisplayMetrics().density;
+		Bitmap bitmap = BitmapFactory.decodeResource(resources, gResId);
+		android.graphics.Bitmap.Config bitmapConfig = bitmap.getConfig();
+		if (bitmapConfig == null) {
+			bitmapConfig = android.graphics.Bitmap.Config.ARGB_8888;
+		}
+		bitmap = bitmap.copy(bitmapConfig, true);
+		Canvas canvas = new Canvas(bitmap);
+		Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
+		paint.setColor(Color.BLACK);
+		paint.setTextSize((int) (15 * scale));
+		paint.setShadowLayer(1f, 0f, 1f, Color.WHITE);
+		Rect bounds = new Rect();
+		paint.getTextBounds(gText, 0, gText.length(), bounds);
+		int x = (bitmap.getWidth() - bounds.width()) / 2;
+		int y = (bitmap.getHeight() + bounds.height()) / 2;
+		canvas.drawText(gText, x * scale, y * scale, paint);
+		return bitmap;
 	}
 
 	/**
@@ -259,7 +368,6 @@ public class DirectionMapChildFragment extends Fragment implements
 			markerOptions.position(toPosition);
 			markerOptions.draggable(true);
 			addMarkers();
-			// }
 			if (latLngs.size() > 0)
 				mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
 						latLngs.get(0), 12));
@@ -338,12 +446,11 @@ public class DirectionMapChildFragment extends Fragment implements
 							.append(returnedAddress.getAddressLine(i)).append(
 									"\n");
 				}
-		 	 
-				
+
 				strAdd = strReturnedAddress.toString();
 				Log.w("My Current loction address",
 						"" + strReturnedAddress.toString());
-		  
+
 			} else {
 				Log.w("My Current loction address", "No Address returned!");
 			}

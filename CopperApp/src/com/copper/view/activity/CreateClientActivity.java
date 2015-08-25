@@ -130,6 +130,8 @@ public class CreateClientActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Create Client");
+		Utils.backAction(this);
+
 	}
 
 	void DropDown() {
@@ -172,7 +174,7 @@ public class CreateClientActivity extends ActionBarActivity implements
 						state.getText().toString().trim(), zipcode.getText()
 								.toString().trim(), country.getText()
 								.toString().trim(), clientChildBean.getId(),
-						this,false);
+						this, false);
 			}
 		} else {
 			PropertyBean propertyBean = (PropertyBean) object;

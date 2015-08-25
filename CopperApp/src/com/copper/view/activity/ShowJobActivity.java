@@ -217,6 +217,8 @@ public class ShowJobActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Create Job");
+		Utils.backAction(this);
+
 	}
 
 }

@@ -27,6 +27,7 @@ import com.copper.communicator.CallBackListener;
 import com.copper.communicator.RequestMethod;
 import com.copper.communicator.RequestResponseType;
 import com.copper.prefs.MyPref;
+import com.copper.utils.Utils;
 import com.google.android.gms.internal.is;
 
 public class CreateInvoicesActivity extends ActionBarActivity implements
@@ -229,6 +230,8 @@ public class CreateInvoicesActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Create Invoice");
+		Utils.backAction(this);
+
 	}
 
 	@Override

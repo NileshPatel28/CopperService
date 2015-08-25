@@ -31,13 +31,17 @@ public class ParserHandlerAdapter {
 		if (response != null) {
 			JSONArray jsonArray = null;
 			JSONObject jsonObject = null;
+			JSONObject jsonObjectMain = null;
+
 			try {
-				jsonArray = new JSONArray(response);
+
+				jsonObjectMain = new JSONObject(response);
+				jsonArray = jsonObjectMain.getJSONArray(ConstantLib.JOBS);
+
 			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return null;
-
 			}
 			ArrayList<JobChildBean> job = new ArrayList<JobChildBean>();
 			JobEntityBean jobEntityBean = new JobEntityBean();
@@ -141,13 +145,20 @@ public class ParserHandlerAdapter {
 
 			JSONArray jsonArray = null;
 			JSONObject jsonObject = null;
+			JSONObject jsonObjectMain = null;
+
 			try {
-				jsonArray = new JSONArray(response);
+
+				jsonObjectMain = new JSONObject(response);
+				jsonArray = jsonObjectMain
+						.getJSONArray(ConstantLib.INVENTORIES);
+
 			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return null;
 			}
+
 			ArrayList<InventoryChildBean> job = new ArrayList<InventoryChildBean>();
 			InventoryBean jobEntityBean = new InventoryBean();
 
@@ -341,8 +352,13 @@ public class ParserHandlerAdapter {
 
 			JSONArray jsonArray = null;
 			JSONObject jsonObject = null;
+			JSONObject jsonObjectMain = null;
+
 			try {
-				jsonArray = new JSONArray(response);
+
+				jsonObjectMain = new JSONObject(response);
+				jsonArray = jsonObjectMain.getJSONArray("clients");
+
 			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -503,17 +519,23 @@ public class ParserHandlerAdapter {
 
 	public static Object parseProperty(String response) {
 		if (response != null) {
-
 			JSONArray jsonArray = null;
+			JSONObject jsonObject = null;
+			JSONObject jsonObjectMain = null;
+
 			try {
-				jsonArray = new JSONArray(response);
+
+				jsonObjectMain = new JSONObject(response);
+				jsonArray = jsonObjectMain.getJSONArray(ConstantLib.PROPERTIES);
+
 			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+				return null;
 			}
+
 			ArrayList<PropertyBean> list = new ArrayList<PropertyBean>();
 			for (int i = 0; i < jsonArray.length(); i++) {
-				JSONObject jsonObject = null;
 				try {
 					jsonObject = jsonArray.getJSONObject(i);
 				} catch (JSONException e1) {
@@ -663,11 +685,19 @@ public class ParserHandlerAdapter {
 		if (response != null) {
 
 			JSONArray jsonArray = null;
-			JSONObject jsonObject = null;
-			try {
-				jsonArray = new JSONArray(response);
-			} catch (JSONException e1) {
+			JSONArray jsonArray2 = null;
 
+			JSONObject jsonObject = null;
+			JSONObject jsonObject2 = null;
+
+			JSONObject jsonObjectMain = null;
+
+			try {
+
+				jsonObjectMain = new JSONObject(response);
+				jsonArray = jsonObjectMain.getJSONArray(ConstantLib.QUOTES);
+
+			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return null;
@@ -679,6 +709,7 @@ public class ParserHandlerAdapter {
 				QuoteChildBean jobChildBean = new QuoteChildBean();
 				try {
 					jsonObject = jsonArray.getJSONObject(i);
+
 					if (!jsonObject.isNull(ParserConstant.ID))
 						jobChildBean.setId(jsonObject
 								.getString(ParserConstant.ID));
@@ -735,18 +766,21 @@ public class ParserHandlerAdapter {
 								.setRequire_deposit_type(jsonObject
 										.getString(ParserConstant.REQUIRE_DEPOSIT_TYPE));
 
-					if (!jsonObject.isNull(ParserConstant.NAME))
-						jobChildBean.setName(jsonObject
-								.getString(ParserConstant.NAME));
-					if (!jsonObject.isNull(ParserConstant.DESCRIPTION))
-						jobChildBean.setTax(jsonObject
-								.getString(ParserConstant.DESCRIPTION));
+					jsonArray2 = jsonObject
+							.getJSONArray(ConstantLib.QUOTE_WORKS);
+					jsonObject2 = jsonArray2.getJSONObject(0);
 
-					if (!jsonObject.isNull(ParserConstant.QUANTITY))
-						jobChildBean.setTax(jsonObject
+					if (!jsonObject2.isNull(ParserConstant.NAME))
+						jobChildBean.setName(jsonObject2
+								.getString(ParserConstant.NAME));
+					if (!jsonObject2.isNull(ParserConstant.DESCRIPTION))
+						jobChildBean.setDescription(jsonObject2
+								.getString(ParserConstant.DESCRIPTION));
+					if (!jsonObject2.isNull(ParserConstant.QUANTITY))
+						jobChildBean.setQuantity(jsonObject2
 								.getString(ParserConstant.QUANTITY));
-					if (!jsonObject.isNull(ParserConstant.UNIT_COST))
-						jobChildBean.setUnit_cost(jsonObject
+					if (!jsonObject2.isNull(ParserConstant.UNIT_COST))
+						jobChildBean.setUnit_cost(jsonObject2
 								.getString(ParserConstant.UNIT_COST));
 
 				} catch (JSONException e) {
@@ -842,10 +876,10 @@ public class ParserHandlerAdapter {
 
 			JSONArray jsonArray = null;
 			JSONObject jsonObjectMain = null;
-            JSONObject jsonObject = null;
+			JSONObject jsonObject = null;
 			try {
 				jsonObjectMain = new JSONObject(response);
- 				jsonArray = jsonObjectMain.getJSONArray("basic_tasks");
+				jsonArray = jsonObjectMain.getJSONArray("basic_tasks");
 			} catch (JSONException e1) {
 
 				// TODO Auto-generated catch block
@@ -1044,15 +1078,18 @@ public class ParserHandlerAdapter {
 
 			JSONArray jsonArray = null;
 			JSONObject jsonObject = null;
-			try {
-				jsonArray = new JSONArray(response);
-			} catch (JSONException e1) {
+			JSONObject jsonObjectMain = null;
 
+			try {
+
+				jsonObjectMain = new JSONObject(response);
+				jsonArray = jsonObjectMain.getJSONArray(ConstantLib.EXPENSES);
+
+			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return null;
 			}
-
 			ArrayList<ExpensesChildBean> list = new ArrayList<ExpensesChildBean>();
 
 			for (int i = 0; i < jsonArray.length(); i++) {
@@ -1134,10 +1171,14 @@ public class ParserHandlerAdapter {
 
 			JSONArray jsonArray = null;
 			JSONObject jsonObject = null;
-			try {
-				jsonArray = new JSONArray(response);
-			} catch (JSONException e1) {
+			JSONObject jsonObjectMain = null;
 
+			try {
+
+				jsonObjectMain = new JSONObject(response);
+				jsonArray = jsonObjectMain.getJSONArray(ConstantLib.INVOICES);
+
+			} catch (JSONException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 				return null;

@@ -50,9 +50,9 @@ public final class R {
 		public static final int background = 0x7f01002f;
 		public static final int backgroundSplit = 0x7f010031;
 		public static final int backgroundStacked = 0x7f010030;
-		public static final int behindOffset = 0x7f010091;
-		public static final int behindScrollScale = 0x7f010093;
-		public static final int behindWidth = 0x7f010092;
+		public static final int behindOffset = 0x7f010071;
+		public static final int behindScrollScale = 0x7f010073;
+		public static final int behindWidth = 0x7f010072;
 		public static final int buttonBarButtonStyle = 0x7f010018;
 		public static final int buttonBarStyle = 0x7f010017;
 		public static final int customNavigationLayout = 0x7f010032;
@@ -65,8 +65,8 @@ public final class R {
 		public static final int dropDownListViewStyle = 0x7f010021;
 		public static final int dropdownListPreferredItemHeight = 0x7f010048;
 		public static final int expandActivityOverflowButtonDrawable = 0x7f01006b;
-		public static final int fadeDegree = 0x7f010099;
-		public static final int fadeEnabled = 0x7f010098;
+		public static final int fadeDegree = 0x7f010079;
+		public static final int fadeEnabled = 0x7f010078;
 		public static final int height = 0x7f010026;
 		public static final int homeAsUpIndicator = 0x7f010013;
 		public static final int homeLayout = 0x7f010033;
@@ -84,7 +84,7 @@ public final class R {
 		public static final int listPreferredItemPaddingLeft = 0x7f01001f;
 		public static final int listPreferredItemPaddingRight = 0x7f010020;
 		public static final int logo = 0x7f01002d;
-		public static final int mode = 0x7f01008e;
+		public static final int mode = 0x7f01006e;
 		public static final int navigationMode = 0x7f010027;
 		public static final int paddingEnd = 0x7f010039;
 		public static final int paddingStart = 0x7f010038;
@@ -108,10 +108,10 @@ public final class R {
 		public static final int searchViewTextFieldRight = 0x7f010064;
 		public static final int searchViewVoiceIcon = 0x7f010060;
 		public static final int selectableItemBackground = 0x7f010019;
-		public static final int selectorDrawable = 0x7f01009b;
-		public static final int selectorEnabled = 0x7f01009a;
-		public static final int shadowDrawable = 0x7f010096;
-		public static final int shadowWidth = 0x7f010097;
+		public static final int selectorDrawable = 0x7f01007b;
+		public static final int selectorEnabled = 0x7f01007a;
+		public static final int shadowDrawable = 0x7f010076;
+		public static final int shadowWidth = 0x7f010077;
 		public static final int showAsAction = 0x7f01004d;
 		public static final int showDividers = 0x7f010055;
 		public static final int spinnerDropDownItemStyle = 0x7f010058;
@@ -129,10 +129,10 @@ public final class R {
 		public static final int textColorSearchUrl = 0x7f010068;
 		public static final int title = 0x7f010025;
 		public static final int titleTextStyle = 0x7f01002a;
-		public static final int touchModeAbove = 0x7f010094;
-		public static final int touchModeBehind = 0x7f010095;
-		public static final int viewAbove = 0x7f01008f;
-		public static final int viewBehind = 0x7f010090;
+		public static final int touchModeAbove = 0x7f010074;
+		public static final int touchModeBehind = 0x7f010075;
+		public static final int viewAbove = 0x7f01006f;
+		public static final int viewBehind = 0x7f010070;
 		public static final int windowActionBar = 0x7f010000;
 		public static final int windowActionBarOverlay = 0x7f010001;
 		public static final int windowFixedHeightMajor = 0x7f010006;
@@ -292,16 +292,16 @@ public final class R {
 		public static final int end = 0x7f050013;
 		public static final int expand_activities_button = 0x7f05003d;
 		public static final int expanded_menu = 0x7f050043;
-		public static final int fullscreen = 0x7f05002f;
+		public static final int fullscreen = 0x7f05001d;
 		public static final int home = 0x7f050014;
 		public static final int homeAsUp = 0x7f050005;
 		public static final int icon = 0x7f050041;
 		public static final int ifRoom = 0x7f05000a;
 		public static final int image = 0x7f05003e;
-		public static final int left = 0x7f05002c;
+		public static final int left = 0x7f05001a;
 		public static final int listMode = 0x7f050001;
 		public static final int list_item = 0x7f050040;
-		public static final int margin = 0x7f05002e;
+		public static final int margin = 0x7f05001c;
 		public static final int middle = 0x7f050012;
 		public static final int never = 0x7f050009;
 		public static final int none = 0x7f050010;
@@ -309,7 +309,7 @@ public final class R {
 		public static final int progress_circular = 0x7f050018;
 		public static final int progress_horizontal = 0x7f050019;
 		public static final int radio = 0x7f050046;
-		public static final int right = 0x7f05002d;
+		public static final int right = 0x7f05001b;
 		public static final int search_badge = 0x7f050049;
 		public static final int search_bar = 0x7f050048;
 		public static final int search_button = 0x7f05004a;
@@ -320,12 +320,12 @@ public final class R {
 		public static final int search_plate = 0x7f05004d;
 		public static final int search_src_text = 0x7f05004e;
 		public static final int search_voice_btn = 0x7f050052;
-		public static final int selected_view = 0x7f050030;
+		public static final int selected_view = 0x7f05001e;
 		public static final int shortcut = 0x7f050045;
 		public static final int showCustom = 0x7f050007;
 		public static final int showHome = 0x7f050004;
 		public static final int showTitle = 0x7f050006;
-		public static final int slidingmenumain = 0x7f0500db;
+		public static final int slidingmenumain = 0x7f0500dd;
 		public static final int split_action_bar = 0x7f050035;
 		public static final int submit_area = 0x7f050050;
 		public static final int tabMode = 0x7f050002;
@@ -363,8 +363,8 @@ public final class R {
 		public static final int abc_search_dropdown_item_icons_2line = 0x7f030015;
 		public static final int abc_search_view = 0x7f030016;
 		public static final int abc_simple_decor = 0x7f030017;
-		public static final int slidingmenumain = 0x7f030040;
-		public static final int support_simple_spinner_dropdown_item = 0x7f030041;
+		public static final int slidingmenumain = 0x7f030041;
+		public static final int support_simple_spinner_dropdown_item = 0x7f030042;
 	}
 	public static final class string {
 		public static final int abc_action_bar_home_description = 0x7f0a0001;
@@ -611,7 +611,7 @@ public final class R {
 		public static final int SearchView_android_maxWidth = 0;
 		public static final int SearchView_iconifiedByDefault = 3;
 		public static final int SearchView_queryHint = 4;
-		public static final int[] SlidingMenu = { 0x7f01008e, 0x7f01008f, 0x7f010090, 0x7f010091, 0x7f010092, 0x7f010093, 0x7f010094, 0x7f010095, 0x7f010096, 0x7f010097, 0x7f010098, 0x7f010099, 0x7f01009a, 0x7f01009b };
+		public static final int[] SlidingMenu = { 0x7f01006e, 0x7f01006f, 0x7f010070, 0x7f010071, 0x7f010072, 0x7f010073, 0x7f010074, 0x7f010075, 0x7f010076, 0x7f010077, 0x7f010078, 0x7f010079, 0x7f01007a, 0x7f01007b };
 		public static final int SlidingMenu_behindOffset = 3;
 		public static final int SlidingMenu_behindScrollScale = 5;
 		public static final int SlidingMenu_behindWidth = 4;

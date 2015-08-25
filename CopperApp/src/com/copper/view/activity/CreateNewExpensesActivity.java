@@ -10,6 +10,7 @@ import com.copper.communicator.CallBackListener;
 import com.copper.communicator.RequestMethod;
 import com.copper.communicator.RequestResponseType;
 import com.copper.prefs.MyPref;
+import com.copper.utils.Utils;
 
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
@@ -262,6 +263,8 @@ public class CreateNewExpensesActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Create Expanses");
+		Utils.backAction(this);
+
 	}
 
 }

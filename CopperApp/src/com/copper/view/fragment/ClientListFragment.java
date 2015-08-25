@@ -114,10 +114,10 @@ public class ClientListFragment extends ListFragment implements
 	public void onCallBack(int taskType, Object object) {
 		// TODO Auto-generated method stub
 		ClientEntityBean clientEntityBean = (ClientEntityBean) object;
-		if (clientEntityBean != null)
+		if (clientEntityBean != null) {
 			setItem(clientEntityBean.getClientList());
-		arrayList = clientEntityBean.getClientList();
-
+			arrayList = clientEntityBean.getClientList();
+		}
 	}
 
 }

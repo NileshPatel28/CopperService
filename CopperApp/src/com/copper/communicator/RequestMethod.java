@@ -301,8 +301,8 @@ public class RequestMethod implements RequestResponseType {
 			// TODO: handle exception
 		}
 		try {
-			jsonObject2.put(ParserConstant.NAME, property_id);
-			jsonObject2.put(ParserConstant.DESCRIPTION, quote_order);
+			jsonObject2.put(ParserConstant.NAME, work_order_name);
+			jsonObject2.put(ParserConstant.DESCRIPTION, work_order_description);
 			jsonObject2.put(ParserConstant.QUANTITY, quantity);
 			jsonObject2.put(ParserConstant.UNIT_COST, unit_cost);
 			jsonObject2.put(ParserConstant.Total, total);
@@ -311,9 +311,6 @@ public class RequestMethod implements RequestResponseType {
 			jsonObject3.put(ParserConstant.QUOTE_ORDER, quote_order);
 			jsonObject3.put(ParserConstant.TAX, tax);
 			jsonObject3.put(ParserConstant.DISCOUNT, discount);
-			jsonObject3.put(ParserConstant.WORK_ORDER_NAME, work_order_name);
-			jsonObject3.put(ParserConstant.WORK_ORDER_DESCRIPTION,
-					work_order_description);
 			jsonObject3.put(ParserConstant.CLIENT_MESSAGE, client_message);
 			jsonObject.put("quote", jsonObject3);
 

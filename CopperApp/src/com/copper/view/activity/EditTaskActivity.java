@@ -230,6 +230,8 @@ public class EditTaskActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Update Task");
+		Utils.backAction(this);
+
 	}
 
 	@Override

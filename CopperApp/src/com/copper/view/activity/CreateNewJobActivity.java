@@ -24,6 +24,7 @@ import com.copper.communicator.CallBackListener;
 import com.copper.communicator.ConstantLib;
 import com.copper.communicator.RequestMethod;
 import com.copper.prefs.MyPref;
+import com.copper.utils.Utils;
 
 public class CreateNewJobActivity extends ActionBarActivity implements
 		CallBackListener {
@@ -98,6 +99,8 @@ public class CreateNewJobActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Create Job");
+		Utils.backAction(this);
+
 	}
 
 	@Override

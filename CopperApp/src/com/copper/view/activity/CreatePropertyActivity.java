@@ -116,6 +116,8 @@ public class CreatePropertyActivity extends ActionBarActivity implements
 		getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
 		TextView titleTextView = (TextView) findViewById(R.id.title_text);
 		titleTextView.setText("Create Property");
+		Utils.backAction(this);
+
 	}
 
 	@Override
